@@ -18,7 +18,6 @@ var L = A.Lang,
     A.Node.DOM_EVENTS.compositionstart = 1;
 
 /**
- *
  * A base class for CharCounter, providing:
  *
  * - Limit the number of characters allowed in an input box
@@ -191,10 +190,9 @@ var CharCounter = A.Component.create({
         },
 
         /**
-         * Check the current value of the <a
-         * href="CharCounter.html#config_input">input</a>, truncate the data if
-         * needed, and re-sync the UI. Fired from <a
-         *  href="CharCounter.html#method__onInputChange">_onInputChange</a>.
+         * Check the current value of the [input](A.CharCounter.html#attr_input),
+         * truncate the data if needed, and re-sync the UI.
+         * Fired from [_onInputChange](A.CharCounter.html#method__onInputChange).
          *
          * @method checkLength
          */
@@ -285,6 +283,7 @@ var CharCounter = A.Component.create({
         },
 
         /**
+<<<<<<< HEAD
          * Fired on input when `compositionstart` event occurs.
          *
          * @method _onInputCompositionStart
@@ -299,9 +298,12 @@ var CharCounter = A.Component.create({
 
         /**
          * Setter for <a href="CharCounter.html#config_maxLength">maxLength</a>.
+=======
+         * Setter for [maxLength](A.CharCounter.html#attr_maxLength).
+>>>>>>> AUI-1073 Use Markdown instead of HTML's <a> tags
          *
          * @method _setMaxLength
-         * @param {Number} v Value of the new <a href="CharCounter.html#config_maxLenght">maxLenght</a>.
+         * @param {Number} v Value of the new [maxLength](A.CharCounter.html#attr_maxLength).
          * @protected
          * @return {Number}
          */

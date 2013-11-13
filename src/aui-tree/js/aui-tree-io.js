@@ -236,7 +236,7 @@ TreeViewIO.prototype = {
     },
 
     /**
-     * Setter for <a href="TreeNodeIO.html#config_io">io</a>.
+     * Setter for [io](A.TreeViewIO.html#attr_io).
      *
      * @method _setIO
      * @protected

@@ -120,7 +120,7 @@ var _setUnselectable = function(element, unselectable, noRecurse) {
 };
 
 /**
- * Augment the <a href="Node.html">YUI3 Node</a> with more util methods.
+ * Augment the [YUI3 Node](Node.html) with more util methods.
  *
  * Check the [live demo](http://alloyui.com/examples/node/).
  *
@@ -342,8 +342,8 @@ A.mix(NODE_PROTO, {
     },
 
     /**
-     * Retrieves the DOM node bound to a Node instance. See
-     * <a href="Node.html#method_getDOMNode">getDOMNode</a>.
+     * Retrieves the DOM node bound to a Node instance.
+     * See [getDOMNode](Node.html#method_getDOMNode).
      *
      * @method getDOM
      * @return {HTMLNode} The DOM node bound to the Node instance.
@@ -412,8 +412,7 @@ A.mix(NODE_PROTO, {
 
     /**
      * Set the id of the Node instance if the object does not have one. The
-     * generated id is based on a guid created by the
-     * <a href="YUI.html#method_stamp">stamp</a> method.
+     * generated id is based on a guid created by the [stamp](YUI.html#method_stamp) method.
      *
      * @method guid
      * @return {String} The current id of the node
@@ -643,8 +642,7 @@ A.mix(NODE_PROTO, {
 
     /**
      * Generate an unique identifier and reset the id attribute of the node
-     * instance using the new value. Invokes the
-     * <a href="Node.html#method_guid">guid</a>.
+     * instance using the new value. Invokes the [guid](Node.html#method_guid).
      *
      * @method resetId
      * @chainable
@@ -1272,9 +1270,9 @@ if (!SUPPORT_OPTIONAL_TBODY) {
 }
 
 /**
- * Augment the <a href="NodeList.html">YUI3 NodeList</a> with more util methods.
+ * Augment the [YUI3 NodeList](NodeList.html) with more util methods.
  *
- * Check the list of <a href="NodeList.html#methods">Methods</a> available for
+ * Check the list of [Methods](NodeList.html#methods) available for
  * AUI NodeList.
  *
  * @class A.NodeList
@@ -1342,7 +1340,7 @@ ANodeList.importMethod(
 A.mix(
     NODELIST_PROTO, {
         /**
-         * See <a href="Node.html#method_all">Node all</a>.
+         * See [Node all](Node.html#method_all).
          *
          * @method all
          */
@@ -1380,7 +1378,7 @@ A.mix(
         },
 
         /**
-         * See <a href="Node.html#method_getDOM">Node getDOM</a>.
+         * See [Node getDOMNode](Node.html#method_getDOMNode).
          *
          * @method getDOM
          */
@@ -1403,7 +1401,7 @@ A.mix(
         },
 
         /**
-         * See <a href="Node.html#method_one">Node one</a>.
+         * See [Node one](Node.html#method_one).
          *
          * @method one
          */

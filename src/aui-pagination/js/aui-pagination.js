@@ -99,7 +99,7 @@ var Pagination = A.Component.create({
         /**
          * Holds the page items as a NodeList. The list could be queried
          * from the DOM trough Widget HTML_PARSER or generated if
-         * <a href="Pagination.html#config_total">total</a> is specified.
+         * [total](A.Pagination.html#attr_total) is specified.
          *
          * @attribute items
          * @default undefined
@@ -133,7 +133,7 @@ var Pagination = A.Component.create({
 
         /**
          * Total number of page links available. If set, the new
-         * <a href="Pagination.html#config_items">items</a> node list will
+         * [items](A.Pagination.html#attr_items) node list will
          * be rendered.
          *
          * @attribute total

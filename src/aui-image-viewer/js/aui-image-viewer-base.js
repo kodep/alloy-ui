@@ -258,7 +258,7 @@ var ImageViewer = A.Base.create(
 
         /**
          * Get the Node reference to the `currentIndex` element from
-         * the <a href="ImageViewer.html#config_links">links</a>.
+         * the [links](A.ImageViewer.html#attr_links).
          *
          * @method getLink
          * @param {Number} currentIndex
@@ -712,7 +712,7 @@ var ImageViewer = A.Base.create(
         },
 
         /**
-         * Get the <a href="ImageViewer.html#config_info">info</a> template.
+         * Get the [info](A.ImageViewer.html#attr_info) template.
          *
          * @method _getInfoTemplate
          * @param {String} v template
@@ -785,7 +785,7 @@ var ImageViewer = A.Base.create(
 
         /**
          * Fires after the value of the
-         * <a href="ImageViewer.html#config_loading">loading</a> attribute change.
+         * [loading](A.ImageViewer.html#attr_loading) attribute change.
          *
          * @method _afterLoadingChange
          * @param {EventFacade} event
@@ -807,7 +807,7 @@ var ImageViewer = A.Base.create(
 
         /**
          * Fires after the value of the
-         * <a href="ImageViewer.html#config_visible">visible</a> attribute change.
+         * [visible](A.ImageViewer.html#attr_visible) attribute change.
          *
          * @method _afterVisibleChange
          * @param {EventFacade} event
@@ -1042,8 +1042,7 @@ var ImageViewer = A.Base.create(
             },
 
             /**
-             * If `true` the <a
-             * href="ImageViewer.html#config_caption">caption</a> will be pulled
+             * If `true` the [caption](A.ImageViewer.html#attr_caption) will be pulled
              * from the title DOM attribute.
              *
              * @attribute captionFromTitle
@@ -1095,11 +1094,10 @@ var ImageViewer = A.Base.create(
             },
 
             /**
-             * Configuration attributes passed to the <a href="Anim.html">Anim</a>
-             * class.
+             * Configuration attributes passed to the [Anim](Anim.html) class.
              *
              * @attribute imageAnim
-             * @default Predefined <a href="Anim.html">Anim</a> configuration.
+             * @default Predefined [Anim](Anim.html) configuration.
              * @type Object
              */
             imageAnim: {
@@ -1179,8 +1177,7 @@ var ImageViewer = A.Base.create(
             },
 
             /**
-             * Preload all images grabbed from the <a
-             * href="ImageViewer.html#config_links">links</a> attribute.
+             * Preload all images grabbed from the [links](A.ImageViewer.html#attr_links) attribute.
              *
              * @attribute preloadAllImages
              * @default false
@@ -1240,8 +1237,7 @@ var ImageViewer = A.Base.create(
             },
 
             /**
-             * Helper attribute to get the `size` of the <a
-             * href="ImageViewer.html#config_links">links</a> NodeList.
+             * Helper attribute to get the `size` of the [links](A.ImageViewer.html#attr_links) NodeList.
              *
              * @attribute totalLinks
              * @default true
