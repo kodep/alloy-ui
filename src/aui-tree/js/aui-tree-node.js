@@ -100,10 +100,9 @@ var Lang = A.Lang,
 
 /**
  * A base class for TreeNode, providing:
- * <ul>
- *	<li>Widget Lifecycle (initializer, renderUI, bindUI, syncUI, destructor)</li>
- *	<li>The node for the TreeView component</li>
- * </ul>
+ *
+ * - Widget Lifecycle (initializer, renderUI, bindUI, syncUI, destructor)
+ * - The node for the TreeView component
  *
  * Check the [live demo](http://alloyui.com/examples/tree/).
  *
@@ -1080,10 +1079,9 @@ var TREE_NODE_IO = 'tree-node-io';
 
 /**
  * A base class for TreeNodeIO, providing:
- * <ul>
- *	<li>Widget Lifecycle (initializer, renderUI, bindUI, syncUI, destructor)</li>
- *	<li>Ajax support to load the children of the current TreeNode</li>
- * </ul>
+ *
+ * - Widget Lifecycle (initializer, renderUI, bindUI, syncUI, destructor)
+ * - Ajax support to load the children of the current TreeNode
  *
  * @class A.TreeNodeIO
  * @extends A.TreeNode
@@ -1305,10 +1303,9 @@ var CHECKBOX = 'checkbox',
 
 /**
  * A base class for TreeNodeCheck, providing:
- * <ul>
- *	<li>Widget Lifecycle (initializer, renderUI, bindUI, syncUI, destructor)</li>
- *	<li>Checkbox support for the TreeNode</li>
- * </ul>
+ *
+ * - Widget Lifecycle (initializer, renderUI, bindUI, syncUI, destructor)
+ * - Checkbox support for the TreeNode
  *
  * @class A.TreeNodeCheck
  * @extends A.TreeNodeIO
@@ -1579,11 +1576,10 @@ var CHILD = 'child',
 
 /**
  * A base class for TreeNodeTask, providing:
- * <ul>
- *	<li>Widget Lifecycle (initializer, renderUI, bindUI, syncUI, destructor)</li>
- *	<li>3 states checkbox support</li>
- *	<li>Automatic check/uncheck the parent status based on the children checked status</li>
- * </ul>
+ *
+ * - Widget Lifecycle (initializer, renderUI, bindUI, syncUI, destructor)
+ * - 3 states checkbox support
+ * - Automatic check/uncheck the parent status based on the children checked status
  *
  * @class A.TreeNodeTask
  * @extends A.TreeNodeCheck
@@ -1709,11 +1705,10 @@ var TREE_NODE_RADIO = 'tree-node-radio',
 
 /**
  * A base class for TreeNodeRadio, providing:
- * <ul>
- *	<li>Widget Lifecycle (initializer, renderUI, bindUI, syncUI, destructor)</li>
- *	<li>3 states checkbox support</li>
- *	<li>Automatic check/uncheck the parent status based on the children checked status</li>
- * </ul>
+ *
+ * - Widget Lifecycle (initializer, renderUI, bindUI, syncUI, destructor)
+ * - 3 states checkbox support
+ * - Automatic check/uncheck the parent status based on the children checked status
  *
  * @class A.TreeNodeRadio
  * @extends A.TreeNodeTask
