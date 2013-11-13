@@ -154,7 +154,7 @@ A.Tooltip = A.Base.create(TOOLTIP, A.Widget, [
     },
 
     /**
-     * Fire after <code>trigger</code> changes.
+     * Fire after `trigger` changes.
      *
      * @method _afterUiSetTrigger
      * @param val

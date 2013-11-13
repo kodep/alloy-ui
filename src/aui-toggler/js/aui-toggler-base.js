@@ -440,7 +440,7 @@ var Toggler = A.Component.create({
         },
 
         /**
-         * Trigger when the <code>expanded</code> attribute change its value.
+         * Trigger when the `expanded` attribute change its value.
          *
          * @method _onExpandedChange
          * @param event
@@ -453,7 +453,7 @@ var Toggler = A.Component.create({
         },
 
         /**
-         * Set the "expanded"/"collapsed" classes on the UI.
+         * Set the `expanded`/`collapsed` attribute on the UI.
          *
          * @method _uiSetExpanded
          * @param {Boolean} val

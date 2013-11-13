@@ -149,8 +149,8 @@ var Video = A.Component.create({
         },
 
         /**
-         * If <code>true</code> the render phase will be automatically invoked
-         * preventing the <code>.render()</code> manual call.
+         * If `true` the render phase will be automatically invoked
+         * preventing the `.render()` manual call.
          *
          * @attribute render
          * @default true
@@ -254,7 +254,7 @@ var Video = A.Component.create({
         },
 
         /**
-         * Create <code>source</code> element
+         * Create `source` element
          * using passed type attribute.
          *
          * @method _createSource
@@ -396,7 +396,7 @@ var Video = A.Component.create({
         },
 
         /**
-         * Set the <code>fixedAttributes</code> on the UI.
+         * Set the `fixedAttributes` on the UI.
          *
          * @method _uiSetFixedAttributes
          * @param val
@@ -409,7 +409,7 @@ var Video = A.Component.create({
         },
 
         /**
-         * Set the <code>flashVars</code> on the UI.
+         * Set the `flashVars` on the UI.
          *
          * @method _uiSetFlashVars
          * @param val
@@ -422,7 +422,7 @@ var Video = A.Component.create({
         },
 
         /**
-         * Set the <code>ogvUrl</code> on the UI.
+         * Set the `ogvUrl` on the UI.
          *
          * @method _uiSetOgvUrl
          * @param val
@@ -462,7 +462,7 @@ var Video = A.Component.create({
         },
 
         /**
-         * Set the <code>poster</code> on the UI.
+         * Set the `poster` on the UI.
          *
          * @method _uiSetPoster
          * @param val
@@ -481,7 +481,7 @@ var Video = A.Component.create({
         },
 
         /**
-         * Set the <code>swfUrl</code> on the UI.
+         * Set the `swfUrl` on the UI.
          *
          * @method _uiSetSwfUrl
          * @param val
@@ -494,7 +494,7 @@ var Video = A.Component.create({
         },
 
         /**
-         * Set the <code>url</code> on the UI.
+         * Set the `url` on the UI.
          *
          * @method _uiSetUrl
          * @param val
@@ -533,7 +533,7 @@ var Video = A.Component.create({
         },
 
         /**
-         * Check if it's a <code>video</code> node.
+         * Check if it's a `video` node.
          *
          * @method _usingVideo
          * @protected

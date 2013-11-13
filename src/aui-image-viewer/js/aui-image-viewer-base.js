@@ -258,7 +258,7 @@ var ImageViewer = A.Base.create(
         },
 
         /**
-         * Get the Node reference to the <code>currentIndex</code> element from
+         * Get the Node reference to the `currentIndex` element from
          * the <a href="ImageViewer.html#config_links">links</a>.
          *
          * @method getLink
@@ -286,7 +286,7 @@ var ImageViewer = A.Base.create(
         },
 
         /**
-         * Load an image <code>src</code> on the ImageViewer.
+         * Load an image `src` on the ImageViewer.
          *
          * @method loadImage
          * @param {String} src Image src.
@@ -348,7 +348,7 @@ var ImageViewer = A.Base.create(
         },
 
         /**
-         * Check if there is a node reference for the <code>currentIndex</code>.
+         * Check if there is a node reference for the `currentIndex`.
          *
          * @method hasLink
          * @param {Number} currentIndex
@@ -433,7 +433,7 @@ var ImageViewer = A.Base.create(
         },
 
         /**
-         * Preload an image based on its <code>index</code>.
+         * Preload an image based on its `index`.
          *
          * @method preloadImage
          * @param {Number} currentIndex
@@ -1009,7 +1009,7 @@ var ImageViewer = A.Base.create(
         ATTRS: {
 
             /**
-             * If <code>true</code> the navigation is animated.
+             * If `true` the navigation is animated.
              *
              * @attribute anim
              * @default true
@@ -1043,7 +1043,7 @@ var ImageViewer = A.Base.create(
             },
 
             /**
-             * If <code>true</code> the <a
+             * If `true` the <a
              * href="ImageViewer.html#config_caption">caption</a> will be pulled
              * from the title DOM attribute.
              *
@@ -1057,7 +1057,7 @@ var ImageViewer = A.Base.create(
             },
 
             /**
-             * If <code>true</code> the Overlay with the image will be positioned
+             * If `true` the Overlay with the image will be positioned
              * on the center of the viewport.
              *
              * @attribute centered
@@ -1168,7 +1168,7 @@ var ImageViewer = A.Base.create(
             },
 
             /**
-             * Displays the modal the viewport. Set to <code>false</code> to
+             * Displays the modal the viewport. Set to `false` to
              * disable.
              *
              * @attribute modal
@@ -1241,7 +1241,7 @@ var ImageViewer = A.Base.create(
             },
 
             /**
-             * Helper attribute to get the <code>size</code> of the <a
+             * Helper attribute to get the `size` of the <a
              * href="ImageViewer.html#config_links">links</a> NodeList.
              *
              * @attribute totalLinks
@@ -1355,7 +1355,7 @@ var ImageViewer = A.Base.create(
             },
 
             /**
-             * HTML element to house the <code>img</code> which is being loaded.
+             * HTML element to house the `img` which is being loaded.
              *
              * @attribute loader
              * @default Generated HTML div element.
