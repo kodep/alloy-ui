@@ -1499,11 +1499,7 @@ var AColor = A.Color,
          * Static property provides a string to identify the CSS prefix.
          *
          * @property CSS_PREFIX
-<<<<<<< HEAD
          * @type {String}
-=======
-         * @type String
->>>>>>> AUI-1073 Fix @class and @property values
          * @static
          */
         CSS_PREFIX: getClassName(NAME),
@@ -1513,11 +1509,7 @@ var AColor = A.Color,
          * configuration for the `HSVPalette`.
          *
          * @property ATTRS
-<<<<<<< HEAD
          * @type {Object}
-=======
-         * @type Object
->>>>>>> AUI-1073 Fix @class and @property values
          * @static
          */
         ATTRS: {

@@ -195,16 +195,9 @@ var ParseContent = A.Component.create({
         },
 
         /**
-<<<<<<< HEAD
          * Bind listeners on the `insert` and `setContent` methods of the Node
          * instance where you are plugging the ParseContent. These listeners are
          * responsible for intercept the HTML passed and parse them.
-=======
-         * Bind listeners on the `insert` and `setContent`
-         * methods of the Node instance where you are plugging the ParseContent.
-         * These listeners are responsible for intercept the HTML passed and parse
-         * them.
->>>>>>> AUI-1073 Use Markdown instead of HTML's <code> and <pre> tags
          *
          * @method _bindAOP
          * @protected
@@ -296,12 +289,8 @@ var ParseContent = A.Component.create({
          * Loop trough all extracted `script` tags and evaluate them.
          *
          * @method _dispatch
-<<<<<<< HEAD
          * @param {Object} output Object containing the reference for the
          *     fragment and the extracted `script` tags.
-=======
-         * @param {Object} output Object containing the reference for the fragment and the extracted `script` tags.
->>>>>>> AUI-1073 Use Markdown instead of HTML's <code> and <pre> tags
          * @protected
          * @return {String}
          */
