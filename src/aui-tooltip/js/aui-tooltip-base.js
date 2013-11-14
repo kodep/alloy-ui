@@ -33,11 +33,11 @@ var Lang = A.Lang,
  *
  * Check the [live demo](http://alloyui.com/examples/tooltip/).
  *
- * @class Tooltip
+ * @class A.Tooltip
  * @extends Widget
- * @uses WidgetCssClass, WidgetPosition, WidgetStdMod, WidgetToggle, WidgetAutohide,
- * WidgetToolbars, WidgetPositionAlign, WidgetPositionAlignSuggestion,
- * WidgetPositionConstrain, WidgetStack
+ * @uses A.WidgetCssClass, A.WidgetPosition, A.WidgetStdMod, A.WidgetToggle, A.WidgetAutohide,
+ * A.WidgetToolbars, A.WidgetPositionAlign, A.WidgetPositionAlignSuggestion,
+ * A.WidgetPositionConstrain, A.WidgetStack
  * @param config {Object} Object literal specifying widget configuration properties.
  * @constructor
  */
@@ -334,7 +334,7 @@ A.Tooltip = A.Base.create(TOOLTIP, A.Widget, [
     /**
      * Static property provides a string to identify the CSS prefix.
      *
-     * @property Tooltip.CSS_PREFIX
+     * @property CSS_PREFIX
      * @type String
      * @static
      */
@@ -344,7 +344,7 @@ A.Tooltip = A.Base.create(TOOLTIP, A.Widget, [
      * Static property used to define the default attribute
      * configuration for the Tooltip.
      *
-     * @property A.Tooltip.ATTRS
+     * @property ATTRS
      * @type Object
      * @static
      */
@@ -477,7 +477,7 @@ A.Tooltip = A.Base.create(TOOLTIP, A.Widget, [
     /**
      * Static property provides a set of reusable templates.
      *
-     * @property Tooltip.TEMPLATES
+     * @property TEMPLATES
      * @type Object
      * @static
      */

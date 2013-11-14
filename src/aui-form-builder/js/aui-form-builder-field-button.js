@@ -56,7 +56,7 @@ var FormBuilderButtonField = A.Component.create({
     /**
      * Static property provides a string to identify the class.
      *
-     * @property FormBuilderButtonField.NAME
+     * @property NAME
      * @type String
      * @static
      */
@@ -66,7 +66,7 @@ var FormBuilderButtonField = A.Component.create({
      * Static property used to define the default attribute
      * configuration for the FormBuilderButtonField.
      *
-     * @property FormBuilderButtonField.ATTRS
+     * @property ATTRS
      * @type Object
      * @static
      */
@@ -134,7 +134,7 @@ var FormBuilderButtonField = A.Component.create({
     /**
      * Static property used to define the UI attributes.
      *
-     * @property FormBuilderButtonField.UI_ATTRS
+     * @property UI_ATTRS
      * @type Array
      * @static
      */
@@ -143,7 +143,7 @@ var FormBuilderButtonField = A.Component.create({
     /**
      * TODO. Wanna help? Please send a Pull Request.
      *
-     * @property FormBuilderButtonField.CSS_PREFIX
+     * @property CSS_PREFIX
      * @type String
      * @static
      */
@@ -152,7 +152,7 @@ var FormBuilderButtonField = A.Component.create({
     /**
      * Static property used to define which component it extends.
      *
-     * @property FormBuilderButtonField.EXTENDS
+     * @property EXTENDS
      * @type Object
      * @static
      */

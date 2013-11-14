@@ -45,7 +45,7 @@ var FormBuilderSelectField = A.Component.create({
     /**
      * Static property provides a string to identify the class.
      *
-     * @property FormBuilderSelectField.NAME
+     * @property NAME
      * @type String
      * @static
      */
@@ -55,7 +55,7 @@ var FormBuilderSelectField = A.Component.create({
      * Static property used to define the default attribute
      * configuration for the FormBuilderSelectField.
      *
-     * @property FormBuilderSelectField.ATTRS
+     * @property ATTRS
      * @type Object
      * @static
      */
@@ -89,7 +89,7 @@ var FormBuilderSelectField = A.Component.create({
     /**
      * Static property used to define the UI attributes.
      *
-     * @property FormBuilderSelectField.UI_ATTRS
+     * @property UI_ATTRS
      * @type Array
      * @static
      */
@@ -98,7 +98,7 @@ var FormBuilderSelectField = A.Component.create({
     /**
      * TODO. Wanna help? Please send a Pull Request.
      *
-     * @property FormBuilderSelectField.CSS_PREFIX
+     * @property CSS_PREFIX
      * @static
      */
     CSS_PREFIX: CSS_FORM_BUILDER_FIELD,
@@ -106,7 +106,7 @@ var FormBuilderSelectField = A.Component.create({
     /**
      * Static property used to define which component it extends.
      *
-     * @property FormBuilderSelectField.EXTENDS
+     * @property EXTENDS
      * @type Object
      * @static
      */

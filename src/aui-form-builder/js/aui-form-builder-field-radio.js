@@ -56,7 +56,7 @@ var FormBuilderRadioField = A.Component.create({
     /**
      * Static property provides a string to identify the class.
      *
-     * @property FormBuilderRadioField.NAME
+     * @property NAME
      * @type String
      * @static
      */
@@ -66,7 +66,7 @@ var FormBuilderRadioField = A.Component.create({
      * Static property used to define the default attribute
      * configuration for the FormBuilderRadioField.
      *
-     * @property FormBuilderRadioField.ATTRS
+     * @property ATTRS
      * @type Object
      * @static
      */
@@ -88,7 +88,7 @@ var FormBuilderRadioField = A.Component.create({
     /**
      * TODO. Wanna help? Please send a Pull Request.
      *
-     * @property FormBuilderRadioField.CSS_PREFIX
+     * @property CSS_PREFIX
      * @type String
      * @static
      */
@@ -97,7 +97,7 @@ var FormBuilderRadioField = A.Component.create({
     /**
      * Static property used to define which component it extends.
      *
-     * @property FormBuilderRadioField.EXTENDS
+     * @property EXTENDS
      * @type Object
      * @static
      */

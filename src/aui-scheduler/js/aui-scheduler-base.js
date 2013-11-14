@@ -9,7 +9,7 @@
  * A base class for SchedulerEvents.
  *
  * @class A.SchedulerEvents
- * @extends A.ModelList
+ * @extends ModelList
  * @param config {Object} Object literal specifying widget configuration properties.
  * @constructor
  */
@@ -133,7 +133,7 @@ A.SchedulerEvents = A.Base.create('scheduler-events', A.ModelList, [], {
      * Static property used to define the default attribute
      * configuration for the SchedulerEvents.
      *
-     * @property SchedulerEvents.ATTRS
+     * @property ATTRS
      * @type Object
      * @static
      */
@@ -168,7 +168,7 @@ var SchedulerEventSupport = function() {};
  * Static property used to define the default attribute
  * configuration for the SchedulerEventSupport.
  *
- * @property SchedulerEventSupport.ATTRS
+ * @property ATTRS
  * @type Object
  * @static
  */
@@ -410,7 +410,7 @@ A.SchedulerEventSupport = SchedulerEventSupport;
  * A base class for SchedulerBase.
  *
  * @class A.SchedulerBase
- * @extends A.Component
+ * @uses A.SchedulerEventSupport, A.WidgetStdMod
  * @param config {Object} Object literal specifying widget configuration properties.
  * @constructor
  */
@@ -419,7 +419,7 @@ var SchedulerBase = A.Component.create({
     /**
      * Static property provides a string to identify the class.
      *
-     * @property SchedulerBase.NAME
+     * @property NAME
      * @type String
      * @static
      */
@@ -429,7 +429,7 @@ var SchedulerBase = A.Component.create({
      * Static property used to define the default attribute
      * configuration for the SchedulerBase.
      *
-     * @property SchedulerBase.ATTRS
+     * @property ATTRS
      * @type Object
      * @static
      */
@@ -620,7 +620,7 @@ var SchedulerBase = A.Component.create({
     /**
      * TODO. Wanna help? Please send a Pull Request.
      *
-     * @property SchedulerBase.HTML_PARSER
+     * @property HTML_PARSER
      * @type Object
      * @static
      */
@@ -638,7 +638,7 @@ var SchedulerBase = A.Component.create({
     /**
      * TODO. Wanna help? Please send a Pull Request.
      *
-     * @property SchedulerBase.UI_ATTRS
+     * @property UI_ATTRS
      * @type Array
      * @static
      */
@@ -647,7 +647,7 @@ var SchedulerBase = A.Component.create({
     /**
      * TODO. Wanna help? Please send a Pull Request.
      *
-     * @property SchedulerBase.AUGMENTS
+     * @property AUGMENTS
      * @type Array
      * @static
      */

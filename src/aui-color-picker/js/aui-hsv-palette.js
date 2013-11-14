@@ -141,9 +141,13 @@ var AColor = A.Color,
      *
      * @class A.HSVPalette
      * @extends Widget
+<<<<<<< HEAD
      * @uses A.WidgetCssClass, A.WidgetToggle
      * @param {Object} config Object literal specifying widget configuration
      *     properties.
+=======
+     * @param config {Object} Object literal specifying widget configuration properties.
+>>>>>>> AUI-1073 Fix @class and @property values
      * @constructor
      */
     HSVPalette = A.Base.create(NAME, A.Widget, [A.WidgetCssClass, A.WidgetToggle], {
@@ -1495,7 +1499,11 @@ var AColor = A.Color,
          * Static property provides a string to identify the CSS prefix.
          *
          * @property CSS_PREFIX
+<<<<<<< HEAD
          * @type {String}
+=======
+         * @type String
+>>>>>>> AUI-1073 Fix @class and @property values
          * @static
          */
         CSS_PREFIX: getClassName(NAME),
@@ -1505,7 +1513,11 @@ var AColor = A.Color,
          * configuration for the `HSVPalette`.
          *
          * @property ATTRS
+<<<<<<< HEAD
          * @type {Object}
+=======
+         * @type Object
+>>>>>>> AUI-1073 Fix @class and @property values
          * @static
          */
         ATTRS: {
@@ -1580,7 +1592,11 @@ var AColor = A.Color,
          * Static property provides a string to identify the class.
          *
          * @property NAME
+<<<<<<< HEAD
          * @type {String}
+=======
+         * @type String
+>>>>>>> AUI-1073 Fix @class and @property values
          * @static
          */
         NAME: NAME,
@@ -1589,7 +1605,11 @@ var AColor = A.Color,
          * The namespace of the plugin.
          *
          * @property NS
+<<<<<<< HEAD
          * @type {String}
+=======
+         * @type String
+>>>>>>> AUI-1073 Fix @class and @property values
          * @static
          */
         NS: NAME

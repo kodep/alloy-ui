@@ -216,7 +216,7 @@ A.mix(defaults, {
  * A base class for FormValidator.
  *
  * @class A.FormValidator
- * @extends A.Base
+ * @extends Base
  * @param config {Object} Object literal specifying widget configuration properties.
  * @constructor
  */
@@ -225,7 +225,7 @@ var FormValidator = A.Component.create({
     /**
      * Static property provides a string to identify the class.
      *
-     * @property FormValidator.NAME
+     * @property NAME
      * @type String
      * @static
      */
@@ -235,7 +235,7 @@ var FormValidator = A.Component.create({
      * Static property used to define the default attribute
      * configuration for the FormValidator.
      *
-     * @property FormValidator.ATTRS
+     * @property ATTRS
      * @type Object
      * @static
      */
@@ -506,7 +506,7 @@ var FormValidator = A.Component.create({
     /**
      * Static property used to define which component it extends.
      *
-     * @property FormValidator.EXTENDS
+     * @property EXTENDS
      * @type Object
      * @static
      */

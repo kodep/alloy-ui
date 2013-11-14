@@ -193,7 +193,7 @@ var DiagramBuilder = A.Component.create({
     /**
      * Static property provides a string to identify the class.
      *
-     * @property DiagramBuilder.NAME
+     * @property NAME
      * @type String
      * @static
      */
@@ -203,7 +203,7 @@ var DiagramBuilder = A.Component.create({
      * Static property used to define the default attribute
      * configuration for the DiagramBuilder.
      *
-     * @property DiagramBuilder.ATTRS
+     * @property ATTRS
      * @type Object
      * @static
      */
@@ -305,7 +305,7 @@ var DiagramBuilder = A.Component.create({
     /**
      * Static property used to define which component it extends.
      *
-     * @property DiagramBuilder.EXTENDS
+     * @property EXTENDS
      * @type String
      * @static
      */
@@ -314,7 +314,7 @@ var DiagramBuilder = A.Component.create({
     /**
      * TODO. Wanna help? Please send a Pull Request.
      *
-     * @property DiagramBuilder.FIELDS_TAB
+     * @property FIELDS_TAB
      * @default 0
      * @type Number
      * @static
@@ -324,7 +324,7 @@ var DiagramBuilder = A.Component.create({
     /**
      * TODO. Wanna help? Please send a Pull Request.
      *
-     * @property DiagramBuilder.SETTINGS_TAB
+     * @property SETTINGS_TAB
      * @default 1
      * @type Number
      * @static
@@ -1351,7 +1351,7 @@ A.DiagramBuilder.types = {};
  * A base class for DiagramNodeManagerBase.
  *
  * @class A.DiagramNodeManagerBase
- * @extends A.Base
+ * @extends Base
  * @param config {Object} Object literal specifying widget configuration properties.
  * @constructor
  */
@@ -1360,7 +1360,7 @@ var DiagramNodeManagerBase = A.Component.create({
     /**
      * Static property provides a string to identify the class.
      *
-     * @property DiagramNodeManagerBase.NAME
+     * @property NAME
      * @type String
      * @static
      */
@@ -1369,7 +1369,7 @@ var DiagramNodeManagerBase = A.Component.create({
     /**
      * Static property used to define which component it extends.
      *
-     * @property DiagramNodeManagerBase.EXTENDS
+     * @property EXTENDS
      * @type String
      * @static
      */
@@ -1382,7 +1382,7 @@ A.DiagramNodeManager = new DiagramNodeManagerBase();
  * A base class for DiagramNode.
  *
  * @class A.DiagramNode
- * @extends A.Overlay
+ * @extends Overlay
  * @param config {Object} Object literal specifying widget configuration properties.
  * @constructor
  */
@@ -1391,7 +1391,7 @@ var DiagramNode = A.Component.create({
     /**
      * Static property provides a string to identify the class.
      *
-     * @property DiagramNode.NAME
+     * @property NAME
      * @type String
      * @static
      */
@@ -1400,7 +1400,7 @@ var DiagramNode = A.Component.create({
     /**
      * Static property used to define the UI attributes.
      *
-     * @property DiagramNode.UI_ATTRS
+     * @property UI_ATTRS
      * @type Array
      * @static
      */
@@ -1410,7 +1410,7 @@ var DiagramNode = A.Component.create({
      * Static property used to define the default attribute
      * configuration for the DiagramNode.
      *
-     * @property DiagramNode.ATTRS
+     * @property ATTRS
      * @type Object
      * @static
      */
@@ -1662,7 +1662,7 @@ var DiagramNode = A.Component.create({
     /**
      * Static property used to define which component it extends.
      *
-     * @property DiagramNode.EXTENDS
+     * @property EXTENDS
      * @type String
      * @static
      */
@@ -1671,7 +1671,7 @@ var DiagramNode = A.Component.create({
     /**
      * TODO. Wanna help? Please send a Pull Request.
      *
-     * @property DiagramNode.CIRCLE_POINTS
+     * @property CIRCLE_POINTS
      * @type Array
      * @static
      */
@@ -1686,7 +1686,7 @@ var DiagramNode = A.Component.create({
     /**
      * TODO. Wanna help? Please send a Pull Request.
      *
-     * @property DiagramNode.DIAMOND_POINTS
+     * @property DIAMOND_POINTS
      * @type Array
      * @static
      */
@@ -1696,7 +1696,7 @@ var DiagramNode = A.Component.create({
     /**
      * TODO. Wanna help? Please send a Pull Request.
      *
-     * @property DiagramNode.SQUARE_POINTS
+     * @property SQUARE_POINTS
      * @type Array
      * @static
      */
@@ -2874,7 +2874,7 @@ A.DiagramNodeState = A.Component.create({
     /**
      * Static property provides a string to identify the class.
      *
-     * @property DiagramNodeState.NAME
+     * @property NAME
      * @type String
      * @static
      */
@@ -2884,7 +2884,7 @@ A.DiagramNodeState = A.Component.create({
      * Static property used to define the default attribute
      * configuration for the DiagramNodeState.
      *
-     * @property DiagramNodeState.ATTRS
+     * @property ATTRS
      * @type Object
      * @static
      */
@@ -2927,7 +2927,7 @@ A.DiagramNodeState = A.Component.create({
     /**
      * Static property used to define which component it extends.
      *
-     * @property DiagramNodeState.EXTENDS
+     * @property EXTENDS
      * @type String
      * @static
      */
@@ -2990,7 +2990,7 @@ A.DiagramNodeCondition = A.Component.create({
     /**
      * Static property provides a string to identify the class.
      *
-     * @property DiagramNodeCondition.NAME
+     * @property NAME
      * @type String
      * @static
      */
@@ -3000,7 +3000,7 @@ A.DiagramNodeCondition = A.Component.create({
      * Static property used to define the default attribute
      * configuration for the DiagramNodeCondition.
      *
-     * @property DiagramNodeCondition.ATTRS
+     * @property ATTRS
      * @type Object
      * @static
      */
@@ -3043,7 +3043,7 @@ A.DiagramNodeCondition = A.Component.create({
     /**
      * Static property used to define which component it extends.
      *
-     * @property DiagramNodeCondition.EXTENDS
+     * @property EXTENDS
      * @type String
      * @static
      */
@@ -3089,7 +3089,7 @@ A.DiagramNodeStart = A.Component.create({
     /**
      * Static property provides a string to identify the class.
      *
-     * @property DiagramNodeStart.NAME
+     * @property NAME
      * @type String
      * @static
      */
@@ -3099,7 +3099,7 @@ A.DiagramNodeStart = A.Component.create({
      * Static property used to define the default attribute
      * configuration for the DiagramNodeStart.
      *
-     * @property DiagramNodeStart.ATTRS
+     * @property ATTRS
      * @type Object
      * @static
      */
@@ -3120,7 +3120,7 @@ A.DiagramNodeStart = A.Component.create({
     /**
      * Static property used to define which component it extends.
      *
-     * @property DiagramNodeStart.EXTENDS
+     * @property EXTENDS
      * @type String
      * @static
      */
@@ -3142,7 +3142,7 @@ A.DiagramNodeEnd = A.Component.create({
     /**
      * Static property provides a string to identify the class.
      *
-     * @property DiagramNodeEnd.NAME
+     * @property NAME
      * @type String
      * @static
      */
@@ -3152,7 +3152,7 @@ A.DiagramNodeEnd = A.Component.create({
      * Static property used to define the default attribute
      * configuration for the DiagramNodeEnd.
      *
-     * @property DiagramNodeEnd.ATTRS
+     * @property ATTRS
      * @type Object
      * @static
      */
@@ -3173,7 +3173,7 @@ A.DiagramNodeEnd = A.Component.create({
     /**
      * Static property used to define which component it extends.
      *
-     * @property DiagramNodeEnd.EXTENDS
+     * @property EXTENDS
      * @type String
      * @static
      */
@@ -3195,7 +3195,7 @@ A.DiagramNodeJoin = A.Component.create({
     /**
      * Static property provides a string to identify the class.
      *
-     * @property DiagramNodeJoin.NAME
+     * @property NAME
      * @type String
      * @static
      */
@@ -3205,7 +3205,7 @@ A.DiagramNodeJoin = A.Component.create({
      * Static property used to define the default attribute
      * configuration for the DiagramNodeJoin.
      *
-     * @property DiagramNodeJoin.ATTRS
+     * @property ATTRS
      * @type Object
      * @static
      */
@@ -3248,7 +3248,7 @@ A.DiagramNodeJoin = A.Component.create({
     /**
      * Static property used to define which component it extends.
      *
-     * @property DiagramNodeJoin.EXTENDS
+     * @property EXTENDS
      * @type String
      * @static
      */
@@ -3278,7 +3278,7 @@ A.DiagramNodeFork = A.Component.create({
     /**
      * Static property provides a string to identify the class.
      *
-     * @property DiagramNodeFork.NAME
+     * @property NAME
      * @type String
      * @static
      */
@@ -3288,7 +3288,7 @@ A.DiagramNodeFork = A.Component.create({
      * Static property used to define the default attribute
      * configuration for the DiagramNodeFork.
      *
-     * @property DiagramNodeFork.ATTRS
+     * @property ATTRS
      * @type Object
      * @static
      */
@@ -3331,7 +3331,7 @@ A.DiagramNodeFork = A.Component.create({
     /**
      * Static property used to define which component it extends.
      *
-     * @property DiagramNodeFork.EXTENDS
+     * @property EXTENDS
      * @type String
      * @static
      */
@@ -3361,7 +3361,7 @@ A.DiagramNodeTask = A.Component.create({
     /**
      * Static property provides a string to identify the class.
      *
-     * @property DiagramNodeTask.NAME
+     * @property NAME
      * @type String
      * @static
      */
@@ -3371,7 +3371,7 @@ A.DiagramNodeTask = A.Component.create({
      * Static property used to define the default attribute
      * configuration for the DiagramNodeTask.
      *
-     * @property DiagramNodeTask.ATTRS
+     * @property ATTRS
      * @type Object
      * @static
      */
@@ -3414,7 +3414,7 @@ A.DiagramNodeTask = A.Component.create({
     /**
      * Static property used to define which component it extends.
      *
-     * @property DiagramNodeTask.EXTENDS
+     * @property EXTENDS
      * @type String
      * @static
      */

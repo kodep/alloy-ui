@@ -32,11 +32,11 @@ var StdMod = A.WidgetStdMod,
  *
  * Check the [live demo](http://alloyui.com/examples/popover/).
  *
- * @class Popover
+ * @class A.Popover
  * @extends Widget
- * @uses WidgetCssClass, WidgetPosition, WidgetStdMod, WidgetToggle, WidgetAutohide,
- * WidgetToolbars, WidgetModality, WidgetPositionAlign, WidgetPositionAlignSuggestion,
- * WidgetPositionConstrain, WidgetStack
+ * @uses A.WidgetCssClass, A.WidgetPosition, A.WidgetStdMod, A.WidgetToggle, A.WidgetAutohide,
+ * A.WidgetToolbars, A.WidgetModality, A.WidgetPositionAlign, A.WidgetPositionAlignSuggestion,
+ * A.WidgetPositionConstrain, A.WidgetStack
  * @param config {Object} Object literal specifying widget configuration properties.
  * @constructor
  */
@@ -127,7 +127,7 @@ A.Popover = A.Base.create(POPOVER, A.Widget, [
     /**
      * Static property provides a string to identify the CSS prefix.
      *
-     * @property Popover.CSS_PREFIX
+     * @property CSS_PREFIX
      * @type String
      * @static
      */
@@ -137,7 +137,7 @@ A.Popover = A.Base.create(POPOVER, A.Widget, [
      * Static property used to define the default attribute
      * configuration for the Popover.
      *
-     * @property A.Popover.ATTRS
+     * @property ATTRS
      * @type Object
      * @static
      */
@@ -157,7 +157,7 @@ A.Popover = A.Base.create(POPOVER, A.Widget, [
     /**
      * Static property provides a set of reusable templates.
      *
-     * @property Popover.TEMPLATES
+     * @property TEMPLATES
      * @type Object
      * @static
      */

@@ -45,7 +45,6 @@ var Lang = A.Lang,
  * Check the [live demo](http://alloyui.com/examples/pagination/).
  *
  * @class A.Pagination
- * @extends A.Component
  * @param config {Object} Object literal specifying widget configuration properties.
  * @constructor
  */
@@ -53,7 +52,7 @@ var Pagination = A.Component.create({
     /**
      * Static property provides a string to identify the class.
      *
-     * @property Pagination.NAME
+     * @property NAME
      * @type String
      * @static
      */
@@ -63,7 +62,7 @@ var Pagination = A.Component.create({
      * Static property used to define the default attribute
      * configuration for the Pagination.
      *
-     * @property Pagination.ATTRS
+     * @property ATTRS
      * @type Object
      * @static
      */
@@ -175,7 +174,7 @@ var Pagination = A.Component.create({
      * Object hash, defining how attribute values are to be parsed from
      * markup contained in the widget's content box.
      *
-     * @property Pagination.HTML_PARSER
+     * @property HTML_PARSER
      * @type Object
      * @static
      */
@@ -192,7 +191,7 @@ var Pagination = A.Component.create({
      * Static property used to define the attributes
      * for the bindUI lifecycle phase.
      *
-     * @property Pagination.BIND_UI_ATTRS
+     * @property BIND_UI_ATTRS
      * @type Array
      * @static
      */
@@ -201,7 +200,7 @@ var Pagination = A.Component.create({
     /**
      * Static property used to define the UI attributes.
      *
-     * @property Pagination.UI_ATTRS
+     * @property UI_ATTRS
      * @type Array
      * @static
      */

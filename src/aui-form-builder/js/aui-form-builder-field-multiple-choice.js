@@ -64,7 +64,7 @@ var OptionsEditor = A.Component.create({
     /**
      * Static property provides a string to identify the class.
      *
-     * @property OptionsEditor.NAME
+     * @property NAME
      * @type String
      * @static
      */
@@ -74,7 +74,7 @@ var OptionsEditor = A.Component.create({
      * Static property used to define the default attribute
      * configuration for the OptionsEditor.
      *
-     * @property OptionsEditor.ATTRS
+     * @property ATTRS
      * @type Object
      * @static
      */
@@ -95,7 +95,7 @@ var OptionsEditor = A.Component.create({
     /**
      * Static property used to define which component it extends.
      *
-     * @property OptionsEditor.EXTENDS
+     * @property EXTENDS
      * @type Object
      * @static
      */
@@ -150,7 +150,7 @@ var FormBuilderMultipleChoiceField = A.Component.create({
     /**
      * Static property provides a string to identify the class.
      *
-     * @property FormBuilderMultipleChoiceField.NAME
+     * @property NAME
      * @type String
      * @static
      */
@@ -160,7 +160,7 @@ var FormBuilderMultipleChoiceField = A.Component.create({
      * Static property used to define the default attribute
      * configuration for the FormBuilderMultipleChoiceField.
      *
-     * @property FormBuilderMultipleChoiceField.ATTRS
+     * @property ATTRS
      * @type Object
      * @static
      */
@@ -228,7 +228,7 @@ var FormBuilderMultipleChoiceField = A.Component.create({
     /**
      * Static property used to define the UI attributes.
      *
-     * @property FormBuilderMultipleChoiceField.UI_ATTRS
+     * @property UI_ATTRS
      * @type Array
      * @static
      */
@@ -237,7 +237,7 @@ var FormBuilderMultipleChoiceField = A.Component.create({
     /**
      * TODO. Wanna help? Please send a Pull Request.
      *
-     * @property FormBuilderMultipleChoiceField.CSS_PREFIX
+     * @property CSS_PREFIX
      * @type String
      * @static
      */
@@ -246,7 +246,7 @@ var FormBuilderMultipleChoiceField = A.Component.create({
     /**
      * Static property used to define which component it extends.
      *
-     * @property FormBuilderMultipleChoiceField.EXTENDS
+     * @property EXTENDS
      * @type Object
      * @static
      */

@@ -162,7 +162,7 @@ var SchedulerAgendaView = A.Component.create({
     /**
      * Static property provides a string to identify the class.
      *
-     * @property SchedulerAgendaView.NAME
+     * @property NAME
      * @type String
      * @static
      */
@@ -172,7 +172,7 @@ var SchedulerAgendaView = A.Component.create({
      * Static property used to define the default attribute
      * configuration for the SchedulerAgendaView.
      *
-     * @property SchedulerAgendaView.ATTRS
+     * @property ATTRS
      * @type Object
      * @static
      */
@@ -345,7 +345,7 @@ var SchedulerAgendaView = A.Component.create({
     /**
      * Static property used to define which component it extends.
      *
-     * @property SchedulerAgendaView.EXTENDS
+     * @property EXTENDS
      * @type Object
      * @static
      */
