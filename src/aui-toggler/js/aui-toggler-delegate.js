@@ -193,7 +193,7 @@ var TogglerDelegate = A.Component.create({
         renderUI: function() {
             var instance = this;
 
-            if (instance.get(CLOSE_ALL_ON_EXPAND)) {
+            if (instance.get('closeAllOnExpand') || instance.get('expanded')) {
                 instance.createAll();
             }
         },
