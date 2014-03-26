@@ -193,7 +193,7 @@ var TogglerDelegate = A.Component.create({
         renderUI: function() {
             var instance = this;
 
-            instance.createAll();
+            instance._createAll();
         },
 
         /**
@@ -239,7 +239,7 @@ var TogglerDelegate = A.Component.create({
         collapseAll: function(payload) {
             var instance = this;
 
-            instance.createAll();
+            instance._createAll();
 
             A.Array.invoke(instance.items, 'collapse', payload);
         },
@@ -247,9 +247,10 @@ var TogglerDelegate = A.Component.create({
         /**
          * Forces toggler creation on delegated header elements.
          *
-         * @method createAll
+         * @method _createAll
+         * @protected
          */
-        createAll: function() {
+        _createAll: function() {
             var instance = this;
 
             instance.get('container').all(instance.get('header')).each(function(header) {
@@ -274,7 +275,7 @@ var TogglerDelegate = A.Component.create({
         expandAll: function(payload) {
             var instance = this;
 
-            instance.createAll();
+            instance._createAll();
 
             A.Array.invoke(instance.items, 'expand', payload);
         },
