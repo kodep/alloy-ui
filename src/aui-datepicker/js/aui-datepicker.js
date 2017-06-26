@@ -4,11 +4,11 @@
  * @module aui-datepicker
  */
 
-var Lang = A.Lang,
-
-    clamp = function(value, min, max) {
+var Lang = A.Lang;
+var ARIA_LIVE_LEVEL = 'assertive';//NEEDED FOR ACCESSIBILITY
+var clamp = function(value, min, max) {
         return Math.min(Math.max(value, min), max);
-    };
+    }
 
 /**
  * A base class for `DatePickerBase`.
@@ -18,7 +18,6 @@ var Lang = A.Lang,
  *     properties.
  * @constructor
  */
-
 function DatePickerBase() {}
 
 /**
@@ -82,7 +81,10 @@ DatePickerBase.ATTRS = {
         validator: Lang.isNumber,
         value: 1,
         writeOnce: true
-    }
+    },
+
+    accessibility: ''//NEEDED FOR ACCESSIBILITY
+
 };
 
 A.mix(DatePickerBase.prototype, {
@@ -111,6 +113,8 @@ A.mix(DatePickerBase.prototype, {
         var instance = this;
 
         instance.getCalendar()._clearSelection(silent);
+
+        instance._attrs.accessibility = '';//NEEDED FOR ACCESSIBILITY
     },
 
     /**
@@ -197,6 +201,9 @@ A.mix(DatePickerBase.prototype, {
             }
         );
 
+        var dateList = dates ? dates.toString() : '';//NEEDED FOR ACCESSIBILITY
+        instance._attrs.accessibility = dateList;//NEEDED FOR ACCESSIBILITY
+
         calendar._fireSelectionChange();
     },
 
@@ -209,7 +216,6 @@ A.mix(DatePickerBase.prototype, {
     useInputNode: function(node) {
         var instance = this,
             popover = instance.getPopover();
-
         popover.set('trigger', node);
         instance.set('activeInput', node);
 
@@ -219,31 +225,38 @@ A.mix(DatePickerBase.prototype, {
 
         instance.clearSelection(true);
         instance.selectDatesFromInputValue(instance.getParsedDatesFromInputValue());
+
+        // Refocus on previous node by updating newVal property to match current node.
+        instance.set('_ATTR_E_FACADE.newVal._node', node);
+        instance._ATTR_E_FACADE.newVal._node.focus();
     },
 
     /**
-     * Fires after a click in the `Calendar` date.
-     *
-     * @method _afterCalendarDateClick
-     * @protected
-     */
-    _afterCalendarDateClick: function() {
+    * Fires after a click in the `Calendar` date.
+    *
+    * @method _afterCalendarDateClick
+    * @protected
+    */
+    _afterCalendarDateClick: function(event) {
         var instance = this,
             calendar = instance.getCalendar(),
             selectionMode = calendar.get('selectionMode');
 
         if (instance.get('autoHide') && (selectionMode !== 'multiple')) {
             instance.hide();
+
+            // Refocus on previous node
+            instance._ATTR_E_FACADE.newVal._node.focus();
         }
     },
 
     /**
-     * Fires after a selection change in the `Calendar`.
-     *
-     * @method _afterCalendarSelectionChange
-     * @param event
-     * @protected
-     */
+    * Fires after a selection change in the `Calendar`.
+    *
+    * @method _afterCalendarSelectionChange
+    * @param event
+    * @protected
+    */
     _afterCalendarSelectionChange: function(event) {
         var instance = this,
             newDates,
@@ -254,7 +267,19 @@ A.mix(DatePickerBase.prototype, {
 
         newDates = A.Array.dedupe(newDates);
 
+        //Create the string here.
+        var dateList = newDates ? newDates.toString() : '';//NEEDED FOR ACCESSIBILITY
+
+        instance._attrs.accessibility = dateList;//NEEDED FOR ACCESSIBILITY
+
         if (newDates.length !== prevDates.length || newSelection.length < prevDates.length) {
+            var containingNode = A.one('#' + instance.getCalendar().calendarId);
+            var activeInput = instance.get('activeInput');//NEEDED FOR ACCESSIBILITY
+
+// This needs to remove old aria-label and replace with new date
+            activeInput.setAttribute('aria-label', instance._attrs.accessibility);//NEEDED FOR ACCESSIBILITY
+            activeInput.setAttribute('aria-live', ARIA_LIVE_LEVEL);//NEEDED FOR ACCESSIBILITY
+
             instance.fire('selectionChange', {
                 newSelection: newSelection
             });
@@ -262,26 +287,30 @@ A.mix(DatePickerBase.prototype, {
     },
 
     /**
-     * Fires when a selection change in the `DatePicker`.
-     *
-     * @method _afterDatePickerSelectionChange
-     * @protected
-     */
+    * Fires when a selection change in the `DatePicker`.
+    *
+    * @method _afterDatePickerSelectionChange
+    * @protected
+    */
     _afterDatePickerSelectionChange: function() {
         var instance = this;
-
         instance._setCalendarToFirstSelectedDate();
+
+        // Closes calendar when enter key is pressed on date
+        instance.hide();
+
+        instance._ATTR_E_FACADE.newVal._node.focus();
     },
 
     /**
-     * Checks if the given dates are referencing the same
-     * day, month and year.
-     *
-     * @method _isSameDay
-     * @param date1
-     * @param date2
-     * @protected
-     */
+    * Checks if the given dates are referencing the same
+    * day, month and year.
+    *
+    * @method _isSameDay
+    * @param date1
+    * @param date2
+    * @protected
+    */
     _isSameDay: function(date1, date2) {
         return date1.getDate() === date2.getDate() &&
             date1.getMonth() === date2.getMonth() &&
@@ -349,7 +378,9 @@ A.mix(DatePickerBase.prototype, {
      */
     _setPanes: function(val) {
         return clamp(val, 1, 3);
-    }
+    },
+
+
 }, true);
 
 A.DatePickerBase = DatePickerBase;
