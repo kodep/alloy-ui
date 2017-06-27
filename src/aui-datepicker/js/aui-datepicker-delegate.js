@@ -5,12 +5,13 @@
  * @submodule aui-datepicker-delegate
  */
 
-var Lang = A.Lang,
-    isString = Lang.isString,
-
+var _DOCUMENT = A.one(A.config.doc),
+    correspondingNode,
     EVENT_ENTER_KEY = 'enterKey',
-
-    _DOCUMENT = A.one(A.config.doc);
+    EVENT_TAB_KEY = 'tabKey',
+    Lang = A.Lang,
+    isString = Lang.isString,
+    prevNode;
 
 /**
  * Fired when then enter key is pressed on an input node.
@@ -45,6 +46,12 @@ DatePickerDelegate.prototype = {
         var instance = this;
 
         instance.bindDelegateUI();
+
+        this.after(
+            {
+                render: this._afterRender
+            }
+        );
     },
 
     /**
@@ -84,7 +91,16 @@ DatePickerDelegate.prototype = {
                 A.bind('_onceUserInteractionRelease', instance), trigger),
 
             container.delegate(
-                'key', A.bind('_handleTabKeyEvent', instance), 'tab', trigger)
+                'key',
+                A.bind('_handleTabKeyEvent', instance), 'tab', trigger),
+
+            container.delegate(
+                'key',
+                A.bind('_handleEscKeyEvent', instance), 'esc', trigger),
+
+            container.delegate(
+                'key',
+                A.bind('_handleEnterKeyEvent', instance), 'enter', trigger)
 
         ];
 
@@ -95,7 +111,14 @@ DatePickerDelegate.prototype = {
         instance.publish(
             'selectionChange', {
                 defaultFn: instance._defSelectionChangeFn
-            });
+            }
+        );
+    },
+
+    _getPrevNode: function() {
+        if(correspondingNode) {
+            return correspondingNode._node;
+        }
     },
 
     /**
@@ -118,7 +141,7 @@ DatePickerDelegate.prototype = {
             selectedDates = null;
 
         if (activeInput) {
-            selectedDates = activeInput.getData('datepickerSelection')
+            selectedDates = activeInput.getData('datepickerSelection');
         }
 
         return selectedDates;
@@ -142,7 +165,7 @@ DatePickerDelegate.prototype = {
             });
         }
 
-        return null;
+       return null;
     },
 
     /**
@@ -150,7 +173,11 @@ DatePickerDelegate.prototype = {
      *
      * @method useInputNode
      */
-    useInputNode: function() {},
+    useInputNode: function(node) {
+        var instance = this;
+
+        return instance.useInputNode(node);
+    },
 
     /**
      * Triggers `useInputNode` method once.
@@ -219,9 +246,12 @@ DatePickerDelegate.prototype = {
         var instance = this,
             mask = instance.get('mask');
 
-        return A.Date.format(date, {
-            format: mask
-        });
+        return A.Date.format(
+            date,
+            {
+                format: mask
+            }
+        );
     },
 
     /**
@@ -234,19 +264,84 @@ DatePickerDelegate.prototype = {
     _handleKeydownEvent: function(event) {
         var instance = this;
 
+        prevNode = event._currentTarget;
+
         if (event.isKey('enter')) {
             instance.fire(EVENT_ENTER_KEY);
+        } else if (event.isKey('tab')) {
+            instance.fire(EVENT_TAB_KEY);
         }
     },
 
     /**
-    * Handles tab key events
+    * Focuses on active calendar.
     *
     * @method _handleTabKeyEvent
     * @protected
     */
-    _handleTabKeyEvent: function() {
-        this.hide();
+    _focusOnActiveCalendarNode: function() {
+        var instance = this;
+
+        if(instance.getCalendar) {
+            var calendarNode = A.one('#' + instance.getCalendar()._calendarId)._node.parentNode.parentNode;
+
+            calendarNode.focus();
+        }
+    },
+
+    /**
+    * Focus on prior Node
+    *
+    * @method _focusOnLastNode
+    * @protected
+    */
+    _focusOnLastNode: function() {
+        var instance = this;
+
+        instance._ATTR_E_FACADE.prevVal.set('_node', instance.newVal);
+    },
+
+    /**
+    * Handles tab key events and focuses on calendar.
+    *
+    * @method _handleTabKeyEvent
+    * @protected
+    */
+    _handleTabKeyEvent: function(event) {
+        var instance = this;
+
+        correspondingNode = event.currentTarget;
+
+        instance._focusOnActiveCalendarNode();
+    },
+
+    /**
+    * Handles esc key events
+    *
+    * @method _handleEscKeyEvent
+    * @protected
+    */
+    _handleEscKeyEvent: function(event) {
+        var instance = this,
+            calendar = instance.getCalendar();
+
+        if (calendar.get('display') !== "hidden") {
+            instance._focusOnLastNode();
+            instance._ATTR_E_FACADE.newVal._node.focus();
+        }
+    },
+
+    /**
+    * Fires on enter
+    *
+    * @method _handleEnterKeyEvent
+    * @protected
+    */
+    _handleEnterKeyEvent: function(event) {
+        var instance = this;
+
+        instance.show();
+        prevNode = event._currentTarget;
     },
 
     /**
@@ -257,11 +352,18 @@ DatePickerDelegate.prototype = {
      * @protected
      */
     _onceUserInteraction: function(event) {
-        var instance = this;
+        var instance = this,
+            calendarClassName = A.one('#' + instance.getCalendar()._calendarId)._node.parentNode.parentNode.parentNode.parentNode.parentNode.className;
 
         instance.useInputNodeOnce(event.currentTarget);
 
         instance._userInteractionInProgress = true;
+
+        if(correspondingNode && instance._userInteractionInProgress && !calendarClassName.includes('popover-hidden')) {
+            correspondingNode.focus();
+        }
+
+        instance._focusOnActiveCalendarNode();
     },
 
     /**
@@ -356,7 +458,7 @@ DatePickerDelegate.prototype = {
                 activeInput.val(values.join(dateSeparator));
             }
         };
-    }
+    },
 };
 
 /**
