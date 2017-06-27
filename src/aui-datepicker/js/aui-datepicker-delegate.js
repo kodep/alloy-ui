@@ -18,7 +18,7 @@ var CSS_PREFIX = 'yui3';
 var CSS_CALENDAR = getCN(CSS_PREFIX, 'calendar');
 
 // Variable to store previous Node informaiton
-var prevNode = {};
+var prevNode;
 var correspondingNode;
 
 /**
@@ -289,12 +289,6 @@ DatePickerDelegate.prototype = {
         if(instance.getCalendar) {
             var calendarNode = A.one('#' + instance.getCalendar()._calendarId)._node.parentNode.parentNode;
 
-            var thing = A.one('#' + instance.getCalendar()._calendarId)
-
-            if(calendarNode.className.includes('yui-calendar-focused')) {
-
-                // calendarNode.setAttribute('class', calendarNode.className + 'yui-calendar-focused');
-            }
             calendarNode.focus();
         }
     },

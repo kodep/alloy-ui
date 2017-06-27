@@ -5,10 +5,12 @@
  */
 
 var Lang = A.Lang;
-var ARIA_LIVE_LEVEL = 'assertive';//NEEDED FOR ACCESSIBILITY
+var ARIA_LABEL_REGEX = /(?:(?!,).)*/;
+var ARIA_LIVE_LEVEL = 'assertive';
+
 var clamp = function(value, min, max) {
-        return Math.min(Math.max(value, min), max);
-    }
+    return Math.min(Math.max(value, min), max);
+}
 
 /**
  * A base class for `DatePickerBase`.
@@ -83,7 +85,7 @@ DatePickerBase.ATTRS = {
         writeOnce: true
     },
 
-    accessibility: ''//NEEDED FOR ACCESSIBILITY
+    accessibility: ''
 
 };
 
@@ -114,7 +116,7 @@ A.mix(DatePickerBase.prototype, {
 
         instance.getCalendar()._clearSelection(silent);
 
-        instance._attrs.accessibility = '';//NEEDED FOR ACCESSIBILITY
+        instance._attrs.ariaLabel = '';
     },
 
     /**
@@ -201,8 +203,8 @@ A.mix(DatePickerBase.prototype, {
             }
         );
 
-        var dateList = dates ? dates.toString() : '';//NEEDED FOR ACCESSIBILITY
-        instance._attrs.accessibility = dateList;//NEEDED FOR ACCESSIBILITY
+        var dateList = dates ? dates.toString() : '';
+        instance._attrs.ariaLabel = dateList;
 
         calendar._fireSelectionChange();
     },
@@ -225,17 +227,7 @@ A.mix(DatePickerBase.prototype, {
 
         instance.clearSelection(true);
         instance.selectDatesFromInputValue(instance.getParsedDatesFromInputValue());
-
-        // Refocus on previous node by updating newVal property to match current node.
-        // if(this._getPrevNode()) {
-            // instance.set('_ATTR_E_FACADE.newVal._node', this._getPrevNode());
-        // }
-        // console.log('facade', this._getPrevNode())
-        // if(instance._getPrevNode()) {
-        //     instance._getPrevNode().focus();
-        // }
-
-        // TODO: delete? instance._ATTR_E_FACADE.newVal._node.focus();
+        instance.set('_ATTR_E_FACADE.newVal._node', node);
     },
 
     /**
@@ -274,18 +266,16 @@ A.mix(DatePickerBase.prototype, {
 
         newDates = A.Array.dedupe(newDates);
 
-        //Create the string here.
-        var dateList = newDates ? newDates.toString() : '';//NEEDED FOR ACCESSIBILITY
+        var dateList = newDates ? newDates.toString() : '';
 
-        instance._attrs.accessibility = dateList;//NEEDED FOR ACCESSIBILITY
+        instance._attrs.ariaLabel = dateList.match(ARIA_LABEL_REGEX);
 
         if (newDates.length !== prevDates.length || newSelection.length < prevDates.length) {
             var containingNode = A.one('#' + instance.getCalendar().calendarId);
-            var activeInput = instance.get('activeInput');//NEEDED FOR ACCESSIBILITY
+            var activeInput = instance.get('activeInput');
 
-// This needs to remove old aria-label and replace with new date
-            activeInput.setAttribute('aria-label', instance._attrs.accessibility);//NEEDED FOR ACCESSIBILITY
-            activeInput.setAttribute('aria-live', ARIA_LIVE_LEVEL);//NEEDED FOR ACCESSIBILITY
+            activeInput.setAttribute('aria-label', instance._attrs.ariaLabel);
+            activeInput.setAttribute('aria-live', ARIA_LIVE_LEVEL);
 
             instance.fire('selectionChange', {
                 newSelection: newSelection
@@ -385,8 +375,7 @@ A.mix(DatePickerBase.prototype, {
      */
     _setPanes: function(val) {
         return clamp(val, 1, 3);
-    },
-
+    }
 
 }, true);
 
