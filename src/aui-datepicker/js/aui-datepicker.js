@@ -215,7 +215,7 @@ A.mix(DatePickerBase.prototype, {
      */
     useInputNode: function(node) {
         var instance = this,
-            popover = instance.getPopover();
+        popover = instance.getPopover();
         popover.set('trigger', node);
         instance.set('activeInput', node);
 
@@ -227,8 +227,15 @@ A.mix(DatePickerBase.prototype, {
         instance.selectDatesFromInputValue(instance.getParsedDatesFromInputValue());
 
         // Refocus on previous node by updating newVal property to match current node.
-        instance.set('_ATTR_E_FACADE.newVal._node', node);
-        instance._ATTR_E_FACADE.newVal._node.focus();
+        // if(this._getPrevNode()) {
+            // instance.set('_ATTR_E_FACADE.newVal._node', this._getPrevNode());
+        // }
+        // console.log('facade', this._getPrevNode())
+        // if(instance._getPrevNode()) {
+        //     instance._getPrevNode().focus();
+        // }
+
+        // TODO: delete? instance._ATTR_E_FACADE.newVal._node.focus();
     },
 
     /**

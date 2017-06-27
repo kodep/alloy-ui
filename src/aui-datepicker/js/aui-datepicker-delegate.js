@@ -19,6 +19,7 @@ var CSS_CALENDAR = getCN(CSS_PREFIX, 'calendar');
 
 // Variable to store previous Node informaiton
 var prevNode = {};
+var correspondingNode;
 
 /**
  * Fired when then enter key is pressed on an input node.
@@ -114,12 +115,18 @@ DatePickerDelegate.prototype = {
             'selectionChange', {
                 defaultFn: instance._defSelectionChangeFn
             });
-      
+
         // Not tested.
         _DOCUMENT._eventHandles = [
             container.delegate(
                 'key', A.bind('_handleEscKeyEvent', instance), 'esc', trigger)
         ];
+    },
+
+    _getPrevNode: function() {
+        if(correspondingNode) {
+            return correspondingNode._node;
+        }
     },
 
     /**
@@ -278,9 +285,18 @@ DatePickerDelegate.prototype = {
     */
     _focusOnActiveCalendarNode: function() {
         var instance = this;
-        var calendarNode = A.one('#' + instance.getCalendar()._calendarId)._node.parentNode.parentNode;
 
-        calendarNode.focus();
+        if(instance.getCalendar) {
+            var calendarNode = A.one('#' + instance.getCalendar()._calendarId)._node.parentNode.parentNode;
+
+            var thing = A.one('#' + instance.getCalendar()._calendarId)
+
+            if(calendarNode.className.includes('yui-calendar-focused')) {
+
+                // calendarNode.setAttribute('class', calendarNode.className + 'yui-calendar-focused');
+            }
+            calendarNode.focus();
+        }
     },
 
     /**
@@ -304,7 +320,7 @@ DatePickerDelegate.prototype = {
     _handleTabKeyEvent: function(event) {
         var instance = this;
 
-        prevNode = event.currentTarget;
+        correspondingNode = event.currentTarget;
 
         instance._focusOnActiveCalendarNode();
     },
@@ -336,14 +352,8 @@ DatePickerDelegate.prototype = {
     _handleEnterKeyEvent: function(event) {
         var instance = this;
 
-        // if current node is an input field, auto show and focus calendar
-        calendar = instance.getCalendar(),
-        selectionMode = calendar.get('selectionMode');
-
-        if ((instance.get('activeInput')._node.nodeName === 'INPUT') && (selectionMode !== 'multiple')) {
-            instance.show();
-            prevNode = event._currentTarget;
-        }
+        instance.show();
+        prevNode = event._currentTarget;
     },
 
     /**
@@ -359,7 +369,15 @@ DatePickerDelegate.prototype = {
         instance.useInputNodeOnce(event.currentTarget);
         instance._userInteractionInProgress = true;
 
+        console.log('calendar', instance.getCalendar())
+
         // Enables cyclical tab keyboard navigation
+        const calendarClassName = A.one('#' + instance.getCalendar()._calendarId)._node.parentNode.parentNode.parentNode.parentNode.parentNode.className
+
+        if(correspondingNode && instance._userInteractionInProgress && !calendarClassName.includes('popover-hidden')) {
+            correspondingNode.focus()
+        }
+
         instance._focusOnActiveCalendarNode();
     },
 

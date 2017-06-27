@@ -12,6 +12,7 @@
 
     "aui-datepicker-delegate": {
         "requires": [
+            "aui-aria",
             "node-event-delegate",
             "event-focus",
             "aui-event-input",
