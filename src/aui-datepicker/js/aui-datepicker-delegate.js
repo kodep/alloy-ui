@@ -5,21 +5,13 @@
  * @submodule aui-datepicker-delegate
  */
 
-var Lang = A.Lang;
-var isString = Lang.isString;
-var EVENT_ENTER_KEY = 'enterKey';
-var EVENT_TAB_KEY = 'tabKey';
-
-var _DOCUMENT = A.one(A.config.doc);
-
-var getCN = A.getClassName;
-
-var CSS_PREFIX = 'yui3';
-var CSS_CALENDAR = getCN(CSS_PREFIX, 'calendar');
-
-// Variable to store previous Node informaiton
-var prevNode;
-var correspondingNode;
+var _DOCUMENT = A.one(A.config.doc),
+    correspondingNode,
+    EVENT_ENTER_KEY = 'enterKey',
+    EVENT_TAB_KEY = 'tabKey',
+    Lang = A.Lang,
+    isString = Lang.isString,
+    prevNode;
 
 /**
  * Fired when then enter key is pressed on an input node.
@@ -55,9 +47,11 @@ DatePickerDelegate.prototype = {
 
         instance.bindDelegateUI();
 
-        this.after({
-            render: this._afterRender
-        });
+        this.after(
+            {
+                render: this._afterRender
+            }
+        );
     },
 
     /**
@@ -97,13 +91,16 @@ DatePickerDelegate.prototype = {
                 A.bind('_onceUserInteractionRelease', instance), trigger),
 
             container.delegate(
-                'key', A.bind('_handleTabKeyEvent', instance), 'tab', trigger),
+                'key',
+                A.bind('_handleTabKeyEvent', instance), 'tab', trigger),
 
             container.delegate(
-                'key', A.bind('_handleEscKeyEvent', instance), 'esc', trigger),
+                'key',
+                A.bind('_handleEscKeyEvent', instance), 'esc', trigger),
 
             container.delegate(
-                'key', A.bind('_handleEnterKeyEvent', instance), 'enter', trigger)
+                'key',
+                A.bind('_handleEnterKeyEvent', instance), 'enter', trigger)
 
         ];
 
@@ -114,13 +111,8 @@ DatePickerDelegate.prototype = {
         instance.publish(
             'selectionChange', {
                 defaultFn: instance._defSelectionChangeFn
-            });
-
-        // Not tested.
-        _DOCUMENT._eventHandles = [
-            container.delegate(
-                'key', A.bind('_handleEscKeyEvent', instance), 'esc', trigger)
-        ];
+            }
+        );
     },
 
     _getPrevNode: function() {
@@ -183,7 +175,8 @@ DatePickerDelegate.prototype = {
      */
     useInputNode: function(node) {
         var instance = this;
-            return instance.useInputNode(node);
+
+        return instance.useInputNode(node);
     },
 
     /**
@@ -253,9 +246,12 @@ DatePickerDelegate.prototype = {
         var instance = this,
             mask = instance.get('mask');
 
-        return A.Date.format(date, {
-            format: mask
-        });
+        return A.Date.format(
+            date,
+            {
+                format: mask
+            }
+        );
     },
 
     /**
@@ -268,7 +264,7 @@ DatePickerDelegate.prototype = {
     _handleKeydownEvent: function(event) {
         var instance = this;
 
-        prevNode = event._currentTarget; // Might not want it to fire every keydown.
+        prevNode = event._currentTarget;
 
         if (event.isKey('enter')) {
             instance.fire(EVENT_ENTER_KEY);
@@ -326,8 +322,6 @@ DatePickerDelegate.prototype = {
     * @protected
     */
     _handleEscKeyEvent: function(event) {
-
-        // Currently only firing while focused on node.
         var instance = this,
             calendar = instance.getCalendar();
 
@@ -358,18 +352,15 @@ DatePickerDelegate.prototype = {
      * @protected
      */
     _onceUserInteraction: function(event) {
-        var instance = this;
+        var instance = this,
+            calendarClassName = A.one('#' + instance.getCalendar()._calendarId)._node.parentNode.parentNode.parentNode.parentNode.parentNode.className;
 
         instance.useInputNodeOnce(event.currentTarget);
+
         instance._userInteractionInProgress = true;
 
-        console.log('calendar', instance.getCalendar())
-
-        // Enables cyclical tab keyboard navigation
-        const calendarClassName = A.one('#' + instance.getCalendar()._calendarId)._node.parentNode.parentNode.parentNode.parentNode.parentNode.className
-
         if(correspondingNode && instance._userInteractionInProgress && !calendarClassName.includes('popover-hidden')) {
-            correspondingNode.focus()
+            correspondingNode.focus();
         }
 
         instance._focusOnActiveCalendarNode();

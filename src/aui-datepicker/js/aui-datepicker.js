@@ -4,13 +4,13 @@
  * @module aui-datepicker
  */
 
-var Lang = A.Lang;
-var ARIA_LABEL_REGEX = /(?:(?!,).)*/;
-var ARIA_LIVE_LEVEL = 'assertive';
+var Lang = A.Lang,
+    ARIA_LABEL_REGEX = /(?:(?!,).)*/,
+    ARIA_LIVE_LEVEL = 'assertive',
 
-var clamp = function(value, min, max) {
-    return Math.min(Math.max(value, min), max);
-}
+    clamp = function(value, min, max) {
+        return Math.min(Math.max(value, min), max);
+    }
 
 /**
  * A base class for `DatePickerBase`.
@@ -83,10 +83,7 @@ DatePickerBase.ATTRS = {
         validator: Lang.isNumber,
         value: 1,
         writeOnce: true
-    },
-
-    accessibility: ''
-
+    }
 };
 
 A.mix(DatePickerBase.prototype, {
@@ -194,7 +191,8 @@ A.mix(DatePickerBase.prototype, {
      */
     selectDatesFromInputValue: function(dates) {
         var instance = this,
-            calendar = instance.getCalendar();
+            calendar = instance.getCalendar(),
+            dateList;
 
         A.Array.each(
             dates,
@@ -203,7 +201,13 @@ A.mix(DatePickerBase.prototype, {
             }
         );
 
-        var dateList = dates ? dates.toString() : '';
+        if(dates) {
+            dateList = dates.toString();
+        }
+        else {
+            dateList = '';
+        }
+
         instance._attrs.ariaLabel = dateList;
 
         calendar._fireSelectionChange();
@@ -217,7 +221,8 @@ A.mix(DatePickerBase.prototype, {
      */
     useInputNode: function(node) {
         var instance = this,
-        popover = instance.getPopover();
+            popover = instance.getPopover();
+
         popover.set('trigger', node);
         instance.set('activeInput', node);
 
@@ -244,7 +249,6 @@ A.mix(DatePickerBase.prototype, {
         if (instance.get('autoHide') && (selectionMode !== 'multiple')) {
             instance.hide();
 
-            // Refocus on previous node
             instance._ATTR_E_FACADE.newVal._node.focus();
         }
     },
@@ -260,19 +264,25 @@ A.mix(DatePickerBase.prototype, {
         var instance = this,
             newDates,
             newSelection = event.newSelection,
-            prevDates = instance.getSelectedDates() || [];
+            prevDates = instance.getSelectedDates() || [],
+            dateList;
 
         newDates = newSelection.concat(prevDates);
 
         newDates = A.Array.dedupe(newDates);
 
-        var dateList = newDates ? newDates.toString() : '';
+        if(newDates) {
+            dateList = newDates.toString();
+        }
+        else {
+            dateList = '';
+        }
 
         instance._attrs.ariaLabel = dateList.match(ARIA_LABEL_REGEX);
 
         if (newDates.length !== prevDates.length || newSelection.length < prevDates.length) {
-            var containingNode = A.one('#' + instance.getCalendar().calendarId);
-            var activeInput = instance.get('activeInput');
+            var containingNode = A.one('#' + instance.getCalendar().calendarId),
+                activeInput = instance.get('activeInput');
 
             activeInput.setAttribute('aria-label', instance._attrs.ariaLabel);
             activeInput.setAttribute('aria-live', ARIA_LIVE_LEVEL);
@@ -291,9 +301,9 @@ A.mix(DatePickerBase.prototype, {
     */
     _afterDatePickerSelectionChange: function() {
         var instance = this;
+
         instance._setCalendarToFirstSelectedDate();
 
-        // Closes calendar when enter key is pressed on date
         instance.hide();
 
         instance._ATTR_E_FACADE.newVal._node.focus();
