@@ -401,6 +401,7 @@
             "calendar",
             "base",
             "base-build",
+            "aui-aria",
             "aui-datepicker-delegate",
             "aui-datepicker-popover"
         ],

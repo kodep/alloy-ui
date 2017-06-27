@@ -18,7 +18,7 @@ var CSS_PREFIX = 'yui3';
 var CSS_CALENDAR = getCN(CSS_PREFIX, 'calendar');
 
 // Variable to store previous Node informaiton
-var prevNode = {};
+var prevNode;
 
 /**
  * Fired when then enter key is pressed on an input node.
@@ -114,7 +114,7 @@ DatePickerDelegate.prototype = {
             'selectionChange', {
                 defaultFn: instance._defSelectionChangeFn
             });
-      
+
         // Not tested.
         _DOCUMENT._eventHandles = [
             container.delegate(
@@ -278,9 +278,12 @@ DatePickerDelegate.prototype = {
     */
     _focusOnActiveCalendarNode: function() {
         var instance = this;
-        var calendarNode = A.one('#' + instance.getCalendar()._calendarId)._node.parentNode.parentNode;
 
-        calendarNode.focus();
+        if(instance.getCalendar) {
+            var calendarNode = A.one('#' + instance.getCalendar()._calendarId)._node.parentNode.parentNode;
+
+            calendarNode.focus();
+        }
     },
 
     /**
@@ -340,10 +343,9 @@ DatePickerDelegate.prototype = {
         calendar = instance.getCalendar(),
         selectionMode = calendar.get('selectionMode');
 
-        if ((instance.get('activeInput')._node.nodeName === 'INPUT') && (selectionMode !== 'multiple')) {
-            instance.show();
-            prevNode = event._currentTarget;
-        }
+        instance.show();
+
+        prevNode = event._currentTarget;
     },
 
     /**

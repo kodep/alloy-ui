@@ -413,6 +413,7 @@ Y.mix(YUI.Env[Y.version].modules, {
             "calendar",
             "base",
             "base-build",
+            "aui-aria",
             "aui-datepicker-delegate",
             "aui-datepicker-popover"
         ],
@@ -1666,4 +1667,4 @@ Y.mix(YUI.Env[Y.version].modules, {
         ]
     }
 });
-YUI.Env[Y.version].md5 = 'b334dd0064fccae5fc71cc8c33a133ee';
+YUI.Env[Y.version].md5 = 'c8b9007925a82c14856346e7f749888d';
