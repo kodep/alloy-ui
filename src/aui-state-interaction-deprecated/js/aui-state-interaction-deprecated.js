@@ -4,9 +4,11 @@ var Lang = A.Lang,
 
 	getClassName = A.getClassName,
 
+	DISABLED = 'disabled',
 	STATE = 'state',
 
 	CSS_STATE_DEFAULT = getClassName(STATE, 'default'),
+	CSS_STATE_DISABLED = getClassName(STATE, 'disabled'),
 	CSS_STATE_HOVER = getClassName(STATE, 'hover'),
 	CSS_STATE_ACTIVE = getClassName(STATE, 'active');
 
@@ -38,6 +40,16 @@ var StateInteraction = A.Component.create(
 			},
 
 			defaultState: {
+				value: true,
+				validator: isBoolean
+			},
+
+			disabled: {
+				value: true,
+				validator: isBoolean
+			},
+
+			disabledState: {
 				value: true,
 				validator: isBoolean
 			},
@@ -77,19 +89,31 @@ var StateInteraction = A.Component.create(
 
 				var activeClass = instance.get('classNames.active');
 				var defaultClass = instance.get('classNames.default');
+				var disabledClass = instance.get('classNames.disabled');
 				var hoverClass = instance.get('classNames.hover');
+				var node = instance.get('node');
 
 				instance._CSS_STATES = {
 					active: isString(activeClass) ? activeClass : CSS_STATE_ACTIVE,
 					'default': isString(defaultClass) ? defaultClass : CSS_STATE_DEFAULT,
+					disabled: isString(disabledClass) ? disabledClass : CSS_STATE_DISABLED,
 					hover: isString(hoverClass) ? hoverClass : CSS_STATE_HOVER
 				};
 
 				if (instance.get('defaultState')) {
 					instance.get('node').addClass(instance._CSS_STATES['default']);
+
+					node.removeAttribute(DISABLED);
 				}
 
-				instance._createEvents();
+				if (instance.get(DISABLED)) {
+					node.addClass(instance._CSS_STATES[DISABLED]);
+
+					node.attr(DISABLED, true);
+				}
+				else {
+					instance._createEvents();
+				}
 
 				instance._attachInteractionEvents();
 			},
@@ -99,14 +123,17 @@ var StateInteraction = A.Component.create(
 
 				var node = instance.get('node');
 
-				node.on('click', instance._fireEvents, instance);
+				if (!instance.get(DISABLED)) {
+					node.on('click', instance._fireEvents, instance);
 
-				node.on('mouseenter', A.rbind(instance._fireEvents, instance, 'mouseover'));
-				node.on('mouseleave', A.rbind(instance._fireEvents, instance, 'mouseout'));
+					node.on('mouseenter', A.rbind(instance._fireEvents, instance, 'mouseover'));
+					node.on('mouseleave', A.rbind(instance._fireEvents, instance, 'mouseout'));
+				}
 
 				instance.after('activeChange', instance._uiSetState);
 				instance.after('hoverChange', instance._uiSetState);
 				instance.after('defaultChange', instance._uiSetState);
+				instance.after('disabledChange', instance._uiSetState);
 			},
 
 			_fireEvents: function(event, officialType) {
@@ -180,14 +207,21 @@ var StateInteraction = A.Component.create(
 
 				var attrName = event.attrName;
 
+				var node = instance.get('node');
+
 				if (instance.get(attrName + 'State')) {
 					var action = 'addClass';
 
-					if (!event.newVal) {
+					if (event.newVal) {
+						node.attr(DISABLED, true);
+					}
+					else {
 						action = 'removeClass';
+
+						node.removeAttribute(DISABLED, true);
 					}
 
-					instance.get('node')[action](instance._CSS_STATES[attrName]);
+					node[action](instance._CSS_STATES[attrName]);
 				}
 			}
 		}
