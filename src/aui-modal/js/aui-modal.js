@@ -17,8 +17,11 @@ var Lang = A.Lang,
     _EMPTY = '',
     _SPACE = ' ',
 
+    BOUNDING_BOX = 'boundingBox',
     BR = 'br',
     CLICK = 'click',
+    CSS_CLASS = 'cssClass',
+    CSS_CLASS_CHANGE = 'cssClassChange',
     DESTROY_ON_HIDE = 'destroyOnHide',
     DRAGGABLE = 'draggable',
     DRAGGABLE_CHANGE = 'draggableChange',
@@ -28,6 +31,7 @@ var Lang = A.Lang,
     MOUSEMOVE = 'mousemove',
     RESIZABLE = 'resizable',
     RESIZABLE_CHANGE = 'resizableChange',
+    SYNC_UI = 'syncUI',
     VISIBLE_CHANGE = 'visibleChange',
     WIDTH = 'width',
 
@@ -76,7 +80,9 @@ A.Modal = A.Base.create(MODAL, A.Widget, [
         var eventHandles = [
             A.after(instance._afterFillHeight, instance, FILL_HEIGHT),
             A.before(instance._beforeFillHeight, instance, FILL_HEIGHT),
+            instance.after(instance.syncModalExtUI, instance, SYNC_UI),
             instance.after('resize:end', A.bind(instance._syncResizeDimensions, instance)),
+            instance.after(CSS_CLASS_CHANGE, instance._afterCssClassChange),
             instance.after(DRAGGABLE_CHANGE, instance._afterDraggableChange),
             instance.after(RESIZABLE_CHANGE, instance._afterResizableChange),
             instance.after(VISIBLE_CHANGE, instance._afterVisibleChange)
@@ -103,6 +109,12 @@ A.Modal = A.Base.create(MODAL, A.Widget, [
         }
     },
 
+    syncModalExtUI: function() {
+    var instance = this;
+
+        instance._uiSetCssClass(instance.get(CSS_CLASS));
+    },
+
     /**
      * Add <code>bubbleTargets</code> to config object.
      *
@@ -119,6 +131,12 @@ A.Modal = A.Base.create(MODAL, A.Widget, [
         return A.mix(config, {
             bubbleTargets: instance
         });
+    },
+
+    _afterCssClassChange: function(event) {
+        var instance = this;
+
+        instance._uiSetCssClass(event.newVal, event.prevVal);
     },
 
     /**
@@ -332,6 +350,17 @@ A.Modal = A.Base.create(MODAL, A.Widget, [
             resize.offsetHeight -
             parseInt(boundingBox.getComputedStyle('borderTopWidth'), 10) -
             parseInt(boundingBox.getComputedStyle('borderBottomWidth'), 10));
+    },
+
+    _uiSetCssClass: function(val, prevVal) {
+        var instance = this,
+            boundingBox = instance.get(BOUNDING_BOX);
+
+        if (prevVal) {
+            boundingBox.removeClass(prevVal);
+        }
+
+        boundingBox.addClass(val);
     }
 }, {
 
@@ -366,6 +395,9 @@ A.Modal = A.Base.create(MODAL, A.Widget, [
          */
         bodyContent: {
             value: _EMPTY
+        },
+
+        cssClass: {
         },
 
         /**
