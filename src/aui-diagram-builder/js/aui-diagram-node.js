@@ -933,15 +933,6 @@ DiagramNode = A.Component.create({
                 target = val.target;
             }
 
-            A.Array.some(
-                instance.get('transitions').values(),
-                function(t) {
-                    transition = (target === t.target) ? t : null;
-
-                    return transition;
-                }
-            );
-
             if (!transition) {
                 transition = {
                     source: instance.get('name'),
